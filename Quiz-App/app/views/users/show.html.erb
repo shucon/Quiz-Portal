@@ -1,1 +1,5 @@
-<%= @user.name %>, <%= @user.email %>
+<% if @user.id == session[:user_id] || session[:admin] == "yes"%>
+	<%= @user.name %>, <%= @user.email %>
+<% else%>
+<h1> Permission Denied </h1>	
+<% end %>

@@ -2,6 +2,8 @@ module SessionsHelper
 
   def log_in(user)
       session[:user_id] = user.id
+      session[:user_name] = user.name
+  	  session[:admin] = "no"
   end
 
   def current_user
