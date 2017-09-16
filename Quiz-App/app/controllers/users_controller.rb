@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)    # Not the final implementation!
+    @user.admin_status = "no"
     if @user.save
     	log_in @user
     	flash[:success] = "Successfull Signup"

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'sessions/new'
+  get 'admin/monitor'
+  get '/admin_login',    to: 'admin#new'
+  post   '/admin_login',   to: 'admin#create'
+  delete '/admin_logout',  to: 'admin#destroy'  
   get  '/help',    to: 'static_pages#help'
   get  '/signup',   to: 'users#new'
   root 'static_pages#home'
