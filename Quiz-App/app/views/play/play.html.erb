@@ -1,0 +1,18 @@
+<% if session[:user_id] %>
+<h1><%= params[:genre] %>  (<%= params[:subgenre] %>)      Score:<%= $user[0].score %></h1>
+<br><br>
+<%= form_for(@question, url: play_path(:subgenre => params[:subgenre] ,:genre => params[:genre], :restore => 0)) do |f| %>
+<% a = Question.where(genre: params[:genre] , subgenre: params[:subgenre]) %>
+<h3><%= a[$user[0].last_ques].question %></h3><br/>
+<%= f.check_box :a1 %>
+<h4><%= a[$user[0].last_ques].option1 %></h4><br/>
+<%= f.check_box :a2 %>
+<h4><%= a[$user[0].last_ques].option2 %></h4><br/>
+<%= f.check_box :a3 %>
+<h4><%= a[$user[0].last_ques].option3 %></h4><br/>
+<%= f.check_box :a4 %>
+<h4><%= a[$user[0].last_ques].option4 %></h4><br/>
+<%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>
+<%else%>
+<% end %>

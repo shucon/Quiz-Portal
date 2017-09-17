@@ -5,6 +5,11 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home", root_path %></li>
         <!-- <li><%= link_to "Help", '#' %></li> -->
+        <%if session[:admin] == "yes" %>
+          <li><%= link_to "Add Question", add_question_path %></li>
+        <% else %>
+          <li><%= link_to "Play Quiz", quiz_path %></li>
+        <% end %>
         <% if logged_in? %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">

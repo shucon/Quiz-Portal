@@ -3,7 +3,7 @@ module SessionsHelper
   def log_in(user)
       session[:user_id] = user.id
       session[:user_name] = user.name
-  	  session[:admin] = "no"
+  	  session[:admin] = user.admin_status
   end
 
   def current_user
@@ -16,6 +16,8 @@ module SessionsHelper
 
   def log_out
     session.delete(:user_id)
+    session.delete(:admin)
+    session.delete(:user_name)
     @current_user = nil
   end
   

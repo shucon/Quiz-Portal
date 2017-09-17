@@ -18,6 +18,7 @@ class QuestionController < ApplicationController
 
     def question_params
       params.require(:question).permit(:question, :option1, :option2,
-                                   :option3, :option4 ,:genre ,:a1 ,:a2 ,:a3 ,:a4)
+                                   :option3, :option4 ,:genre ,:a1 ,:a2 ,:a3 ,:a4 ,:subgenre)
     end
-end
+
+  end

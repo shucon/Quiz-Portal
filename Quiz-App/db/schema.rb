@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170916232320) do
+ActiveRecord::Schema.define(version: 20170917151622) do
+
+  create_table "genres", force: :cascade do |t|
+    t.string "genre"
+    t.string "subgenre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "quest_stats", force: :cascade do |t|
     t.integer "quest_id"
@@ -18,6 +25,8 @@ ActiveRecord::Schema.define(version: 20170916232320) do
     t.integer "stat"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "subgenre"
+    t.string "genre"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -31,6 +40,25 @@ ActiveRecord::Schema.define(version: 20170916232320) do
     t.integer "a2"
     t.integer "a3"
     t.integer "a4"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "subgenre"
+  end
+
+  create_table "stats", force: :cascade do |t|
+    t.integer "userid"
+    t.integer "questionid"
+    t.integer "stat"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_stats", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "genre"
+    t.string "subgenre"
+    t.integer "last_ques"
+    t.integer "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

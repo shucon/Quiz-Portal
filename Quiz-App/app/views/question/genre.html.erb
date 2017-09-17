@@ -1,0 +1,21 @@
+<% if session[:admin] == "yes" %>
+<% provide(:title, 'Add Genre') %>
+<h1>Add a Genre</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+	<%= form_for(@genre, url: add_genre_path) do |f| %>
+	  <%= render 'shared/genre_error_messages' %>
+
+	  <%= f.label :genre %>
+	  <%= f.text_field :genre , class: 'form-control'%>
+
+	  <%= f.label :subgenre %>
+	  <%= f.text_field :subgenre , class: 'form-control'%>
+
+	  <%= f.submit "Add Subject", class: "btn btn-primary" %>
+	<% end %>
+  </div>
+</div>
+<% else %>
+<h1> UnAuthorized Access </h1>
+<% end %>

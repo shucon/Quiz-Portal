@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-
+  get '/add_genre',    to: 'question#genre'
+  post '/add_genre',  to: 'question#creategenre'
+  get '/quiz',    to: 'play#new'
+  get '/play',    to: 'play#play'
+  post '/play',    to: 'play#check'
   get '/add_question',    to: 'question#new'
   post '/add_question',  to: 'question#create'
   get '/admin_login',    to: 'admin#new'

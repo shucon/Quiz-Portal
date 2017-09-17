@@ -1,0 +1,17 @@
+<% if session[:user_id] %>
+<% provide(:title, 'Select A Genre') %>
+<h1> Select A Genre and Sub-Genre </h1>
+<% Question.distinct(:genre).pluck(:genre).each do |category| %>
+	<h3> <%= category %></h3>
+	<% a = Question.where(genre: category).select(:subgenre).map(&:subgenre).uniq %>
+	<br>
+	<% for items in a %>
+	 <h2> <%= items %> </h2>
+	<%= link_to "New Quiz", play_path(:subgenre => items ,:genre => category, :restore => 0), class: "btn btn-primary btn-lg"%>
+	<%= link_to "Restore Quiz", play_path(:subgenre => items ,:genre => category, :restore => 1), class: "btn btn-primary btn-lg"%>
+	<br>
+	<% end %>
+<% end %>
+<% else %>
+<h1> UnAuthorized Access </h1>
+<% end %>
