@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'admin/monitor'
+
+  get '/add_question',    to: 'question#new'
+  post '/add_question',  to: 'question#create'
   get '/admin_login',    to: 'admin#new'
   post   '/admin_login',   to: 'admin#create'
   delete '/admin_logout',  to: 'admin#destroy'  

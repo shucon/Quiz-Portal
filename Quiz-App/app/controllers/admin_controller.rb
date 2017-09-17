@@ -7,9 +7,9 @@ class AdminController < ApplicationController
     if user && user.authenticate(params[:session][:password]) && user.admin_status == "yes"
       log_in user
       @user_login = user
-      redirect_to user
+      redirect_to add_question_url
     else
-      flash.now[:danger] = 'Invalid email/password combination' # Not quite right!
+      flash.now[:danger] = 'Invalid email/password combination'
       render 'new'
     end
   end

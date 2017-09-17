@@ -138,3 +138,7 @@ input {
     color: $state-danger-text;
   }
 }
+
+.formcontrol, .checkbox{
+  display: inline-block;
+}
