@@ -1,0 +1,23 @@
+ <% if session[:user_id] %>                                                                           [1:21:35]
+<% provide(:title, 'Leader Board') %>
+<h1>Leader Board</h1>
+<h2><%= params[:genre] %> ( <%= params[:subgenre] %> )</h2>
+<% a = 1 %>
+<table align = "center" class="table">
+    <tr>
+        <th>S. No.</th>
+        <th>User Name</th>
+        <th>Score</th>
+    </tr>
+    <% for item in $user%>
+    <tr>
+        <td><%= a %></td>
+        <td><%= User.where(id: item.user_id)[0].name %><td>
+        <td><%= item.score %></td>
+    </tr>
+    <% a+= 1%>
+    <% end %>
+</table>
+<% else %>
+<h1> UnAuthorized Access </h1>
+<% end %>

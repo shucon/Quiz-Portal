@@ -15,6 +15,13 @@ class PlayController < ApplicationController
   						 			subgenre: params[:subgenre])
   	end
 
+  	if (params[:restore].to_i == 0)
+  		$user[0].last_ques = 0
+  		$user[0].score = 0
+  		$user[0].save()
+  		
+  	end
+  		
   end
 
   def check
@@ -27,8 +34,10 @@ class PlayController < ApplicationController
   	if a[$user[0].last_ques].a1 == o1 && a[$user[0].last_ques].a2 == o2 && a[$user[0].last_ques].a3 == o3 && a[$user[0].last_ques].a4 == o4
   		$user[0].score += 1
   		$user[0].last_ques += 1
+  		$user[0].save()
   	else
   		$user[0].last_ques += 1
+  		$user[0].save()
   	end
 
   	render 'play'

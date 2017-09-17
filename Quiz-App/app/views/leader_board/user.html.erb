@@ -1,0 +1,16 @@
+ <% if session[:user_id] %>                                                                           [1:21:35]
+<% provide(:title, 'Leader Board') %>
+<h1>Leader Board</h1>
+<% Question.distinct(:genre).pluck(:genre).each do |category| %>
+        <h3> <%= category %></h3>
+        <% a = Question.where(genre: category).select(:subgenre).map(&:subgenre).uniq %>
+        <br>
+        <% for items in a %>
+         <h2> <%= items %> </h2>
+        <%= link_to "View Leader Board", view_leader_board_path(:subgenre => items ,:genre => category,), class: "btn btn-primary btn-lg"%>
+        <br>
+        <% end %>
+<% end %>
+<% else %>
+<h1> UnAuthorized Access </h1>
+<% end %>

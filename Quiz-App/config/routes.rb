@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+
+
+  get '/view_leader_board',    to: 'leader_board#user_render'
+  get '/leader_board',    to: 'leader_board#user'
+  get 'leader_board/admin'
   get '/add_genre',    to: 'question#genre'
   post '/add_genre',  to: 'question#creategenre'
   get '/quiz',    to: 'play#new'
