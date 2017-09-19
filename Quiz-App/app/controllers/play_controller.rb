@@ -10,10 +10,9 @@ class PlayController < ApplicationController
   		$user = UserStat.new(user_id: session[:user_id] , genre: params[:genre] ,
   						 			subgenre: params[:subgenre] , last_ques: 0 , score: 0)
   		$user.save()
-  	else
-  		$user = UserStat.where(user_id: session[:user_id] , genre: params[:genre] ,
-  						 			subgenre: params[:subgenre])
   	end
+  	$user = UserStat.where(user_id: session[:user_id] , genre: params[:genre] ,
+  						 			subgenre: params[:subgenre])
 
   	if (params[:restore].to_i == 0)
   		$user[0].last_ques = 0
@@ -21,7 +20,7 @@ class PlayController < ApplicationController
   		$user[0].save()
   		
   	end
-  		
+
   end
 
   def check
@@ -34,7 +33,10 @@ class PlayController < ApplicationController
   	if a[$user[0].last_ques].a1 == o1 && a[$user[0].last_ques].a2 == o2 && a[$user[0].last_ques].a3 == o3 && a[$user[0].last_ques].a4 == o4
   		$user[0].score += 1
   		$user[0].last_ques += 1
-  		$user[0].save()
+  		if $user[0].score > $user[0].highest_score
+        $user[0].highest_score = $user[0].score
+      end 
+      $user[0].save()
   	else
   		$user[0].last_ques += 1
   		$user[0].save()

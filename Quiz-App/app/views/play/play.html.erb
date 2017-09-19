@@ -1,8 +1,11 @@
 <% if session[:user_id] %>
 <h1><%= params[:genre] %>  (<%= params[:subgenre] %>)      Score:<%= $user[0].score %></h1>
 <br><br>
-<%= form_for(@question, url: play_path(:subgenre => params[:subgenre] ,:genre => params[:genre], :restore => 0)) do |f| %>
 <% a = Question.where(genre: params[:genre] , subgenre: params[:subgenre]) %>
+<% if a.size == $user[0].last_ques %>
+  <h1> Quiz Completed</h1>
+<% else %>
+<%= form_for(@question, url: play_path(:subgenre => params[:subgenre] ,:genre => params[:genre], :restore => 0)) do |f| %>
 <h3><%= a[$user[0].last_ques].question %></h3><br/>
 <%= f.check_box :a1 %>
 <h4><%= a[$user[0].last_ques].option1 %></h4><br/>
@@ -13,6 +16,8 @@
 <%= f.check_box :a4 %>
 <h4><%= a[$user[0].last_ques].option4 %></h4><br/>
 <%= f.submit "Submit", class: "btn btn-primary" %>
+
+<%end%>
 <% end %>
 <%else%>
 <% end %>

@@ -1,0 +1,37 @@
+<% if session[:user_id] %>
+<% provide(:title, 'Quiz Stats') %>
+<h1>Quiz Stats</h1>
+<table class="table">
+	<tr>
+		<th>S.No.</th>
+		<th>Genre</th>
+		<th>Sub-Genre</th>
+		<th>Status</th>
+		<th>Highest Score</th>
+	</tr>
+<% sno = 1 %>
+<% Question.distinct(:genre).pluck(:genre).each do |category| %>
+	<% a = Question.where(genre: category).select(:subgenre).map(&:subgenre).uniq %>
+	<br>
+	<% for items in a %>
+	<tr>
+		<td><%= sno %></td>
+		<td><%= category %></td>
+		<td><%= items %></td>
+		<% user_stat = UserStat.where(user_id: session[:user_id] ,									genre: category ,subgenre: items) %>
+
+		<% if (user_stat.empty? == true) %>
+		<td style="color:red">Not Attempted</td>
+		<td>NULL</td>
+		<% else %>
+		<td style="color:green">Attempted</td>
+		<td><%= user_stat[0].highest_score %></td>
+		<% end %>
+	</tr>
+	<% sno+=1 %>
+	<% end %>
+<% end %>
+</table>
+<% else %>
+<h1> UnAuthorized Access </h1>
+<% end %>

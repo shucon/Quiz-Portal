@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 
 
+  get 'quiz_stats',    to:'quiz_stats#new'
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get '/view_leader_board',    to: 'leader_board#user_render'
   get '/leader_board',    to: 'leader_board#user'
   get 'leader_board/admin'
@@ -12,8 +14,8 @@ Rails.application.routes.draw do
   post '/play',    to: 'play#check'
   get '/add_question',    to: 'question#new'
   post '/add_question',  to: 'question#create'
-  get '/admin_login',    to: 'admin#new'
-  post   '/admin_login',   to: 'admin#create'
+  get '/login1',    to: 'admin#new'
+  post   '/login1',   to: 'admin#create'
   delete '/admin_logout',  to: 'admin#destroy'  
   get  '/help',    to: 'static_pages#help'
   get  '/signup',   to: 'users#new'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170917151622) do
+ActiveRecord::Schema.define(version: 20170919153305) do
 
   create_table "genres", force: :cascade do |t|
     t.string "genre"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20170917151622) do
     t.integer "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "highest_score"
   end
 
   create_table "users", force: :cascade do |t|

@@ -8,8 +8,6 @@
         <%if session[:admin] == "yes" %>
           <li><%= link_to "Add Question", add_question_path %></li>
         <% else %>
-          <li><%= link_to "Play Quiz", quiz_path %></li>
-          <li><%= link_to "Leader Board", '/leader_board' %></li>
         <% end %>
         <% if logged_in? %>
           <li class="dropdown">
@@ -18,7 +16,9 @@
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to "Profile", current_user %></li>
-              <li><%= link_to "Settings", '#' %></li>
+              <li><%= link_to "Play Quiz", quiz_path %></li>
+              <li><%= link_to "Leader Board", '/leader_board' %></li>
+              <li><%= link_to "Quiz Stats", '/quiz_stats' %></li>
               <li class="divider"></li>
               <li>
                 <%= link_to "Log out", logout_path, method: :delete %>
