@@ -15791,3 +15791,413 @@ Processing by PlayController#new as HTML
 Completed 200 OK in 130ms (Views: 126.6ms | ActiveRecord: 1.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-09-20 02:19:08 +0530
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (83.9ms)
+  Rendered layouts/_shim.html.erb (1.9ms)
+  [1m[36mUser Load (7.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (95.7ms)
+  Rendered layouts/_footer.html.erb (1.3ms)
+Completed 200 OK in 12169ms (Views: 12129.6ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2017-09-20 02:19:40 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 129ms (Views: 105.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/quiz" for 127.0.0.1 at 2017-09-20 02:19:49 +0530
+Processing by PlayController#new as HTML
+  Rendering play/new.html.erb within layouts/application
+  [1m[35m (10.1ms)[0m  [1m[34mSELECT DISTINCT "questions"."genre" FROM "questions"[0m
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions"."subgenre" FROM "questions" WHERE "questions"."genre" = ?[0m  [["genre", "G.K."]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions"."subgenre" FROM "questions" WHERE "questions"."genre" = ?[0m  [["genre", "MATHS"]]
+  Rendered play/new.html.erb within layouts/application (51.3ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.5ms)
+  Rendered layouts/_footer.html.erb (1.7ms)
+Completed 200 OK in 128ms (Views: 107.7ms | ActiveRecord: 12.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-20 02:20:06 +0530
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.0ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 103ms (Views: 101.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/quiz_stats" for 127.0.0.1 at 2017-09-20 02:20:10 +0530
+Processing by QuizStatsController#new as HTML
+  Rendering quiz_stats/new.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT DISTINCT "questions"."genre" FROM "questions"[0m
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions"."subgenre" FROM "questions" WHERE "questions"."genre" = ?[0m  [["genre", "G.K."]]
+  [1m[36mUserStat Exists (14.6ms)[0m  [1m[34mSELECT  1 AS one FROM "user_stats" WHERE "user_stats"."user_id" = ? AND "user_stats"."genre" = ? AND "user_stats"."subgenre" = ? LIMIT ?[0m  [["user_id", 2], ["genre", "G.K."], ["subgenre", "GEOGRAPHY"], ["LIMIT", 1]]
+  [1m[36mUserStat Load (0.5ms)[0m  [1m[34mSELECT "user_stats".* FROM "user_stats" WHERE "user_stats"."user_id" = ? AND "user_stats"."genre" = ? AND "user_stats"."subgenre" = ?[0m  [["user_id", 2], ["genre", "G.K."], ["subgenre", "GEOGRAPHY"]]
+  [1m[36mUserStat Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "user_stats" WHERE "user_stats"."user_id" = ? AND "user_stats"."genre" = ? AND "user_stats"."subgenre" = ? LIMIT ?[0m  [["user_id", 2], ["genre", "G.K."], ["subgenre", "HISTORY"], ["LIMIT", 1]]
+  [1m[36mUserStat Load (0.2ms)[0m  [1m[34mSELECT "user_stats".* FROM "user_stats" WHERE "user_stats"."user_id" = ? AND "user_stats"."genre" = ? AND "user_stats"."subgenre" = ?[0m  [["user_id", 2], ["genre", "G.K."], ["subgenre", "HISTORY"]]
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT "questions"."subgenre" FROM "questions" WHERE "questions"."genre" = ?[0m  [["genre", "MATHS"]]
+  [1m[36mUserStat Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "user_stats" WHERE "user_stats"."user_id" = ? AND "user_stats"."genre" = ? AND "user_stats"."subgenre" = ? LIMIT ?[0m  [["user_id", 2], ["genre", "MATHS"], ["subgenre", "TRIGONOMETRY"], ["LIMIT", 1]]
+  Rendered quiz_stats/new.html.erb within layouts/application (48.2ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 154ms (Views: 100.1ms | ActiveRecord: 17.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-20 13:22:02 +0530
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 146ms (Views: 143.5ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2017-09-20 13:25:27 +0530
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"AuRr5Op8rKpQp8Gp028NKHq3okhrDsUKeJVc3qViF8zcKjzat5wMGBORLm1SE4HKK70CDhMypxeRWOA/v/KITA=="}
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-20 13:25:27 +0530
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 68ms (Views: 66.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/login1" for 127.0.0.1 at 2017-09-20 13:25:30 +0530
+Processing by AdminController#new as HTML
+  Rendering admin/new.html.erb within layouts/application
+  Rendered admin/new.html.erb within layouts/application (125.0ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 249ms (Views: 187.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login1" for 127.0.0.1 at 2017-09-20 13:25:33 +0530
+Processing by AdminController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vUapY1aRXVaud8Nqo88qpv1hMV+Yd1jhAM5RLxwwaPAiRGpCC4NoI+OW7gSflosLPD1KWEcvBmANNMVDdVq+vA==", "session"=>{"email"=>"admin@admin.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (58.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@admin.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/admin
+Completed 302 Found in 178ms (ActiveRecord: 58.1ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-09-20 13:25:34 +0530
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[35m (19.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "quest_stats"[0m
+  [1m[36mQuestStat Load (0.2ms)[0m  [1m[34mSELECT  "quest_stats".* FROM "quest_stats" ORDER BY "quest_stats"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions"[0m
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY "questions"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_stats"[0m
+  [1m[36mUserStat Load (0.2ms)[0m  [1m[34mSELECT  "user_stats".* FROM "user_stats" ORDER BY "user_stats"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (64.1ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_secondary_navigation.html.haml (8.2ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_navigation.html.haml (17.1ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (7.1ms)
+  Rendering /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/pjax.html.haml (8.3ms)
+Completed 200 OK in 2512ms (Views: 1248.2ms | ActiveRecord: 22.5ms)
+
+
+Started GET "/admin/question?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2017-09-20 13:25:40 +0530
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"question"}
+  Rendering /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY questions.id desc LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (134.5ms)
+Completed 200 OK in 192ms (Views: 169.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/question/9/edit?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2017-09-20 13:25:51 +0530
+Processing by RailsAdmin::MainController#edit as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"question", "id"=>"9"}
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = ? ORDER BY "questions"."id" ASC LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/edit.html.haml within layouts/rails_admin/pjax
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (2.9ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.4ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.5ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.2ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.2ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (11.0ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.5ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (1.0ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.5ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_submit_buttons.html.haml (12.1ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/edit.html.haml within layouts/rails_admin/pjax (67.8ms)
+Completed 200 OK in 146ms (Views: 126.4ms | ActiveRecord: 0.5ms)
+
+
+Started PUT "/admin/question/9/edit" for 127.0.0.1 at 2017-09-20 13:26:38 +0530
+Processing by RailsAdmin::MainController#edit as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TOxKLyl4wT4eAIbaTGMUuK3LcF1mElzCPdhinF6GWEsX1qyXlu+98utHSBYq7/l57Mb+UvOiHeJ+kzI1K+GhBQ==", "question"=>{"question"=>"Which cities are located in India", "option1"=>"Tokyo", "option2"=>"Delhi", "option3"=>"Mumbai", "option4"=>"Bangalore", "genre"=>"G.K.", "a1"=>"0", "a2"=>"1", "a3"=>"1", "a4"=>"1", "subgenre"=>"Geography"}, "return_to"=>"http://0.0.0.0:3000/admin/question", "_add_another"=>"", "model_name"=>"question", "id"=>"9"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = ? ORDER BY "questions"."id" ASC LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[33mUPDATE "questions" SET "question" = ?, "option1" = ?, "option2" = ?, "option3" = ?, "option4" = ?, "a1" = ?, "a2" = ?, "a3" = ?, "a4" = ?, "subgenre" = ?, "updated_at" = ? WHERE "questions"."id" = ?[0m  [["question", "Which cities are located in India"], ["option1", "Tokyo"], ["option2", "Delhi"], ["option3", "Mumbai"], ["option4", "Bangalore"], ["a1", 0], ["a2", 1], ["a3", 1], ["a4", 1], ["subgenre", "GEOGRAPHY"], ["updated_at", "2017-09-20 07:56:38.327126"], ["id", 9]]
+  [1m[35m (124.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/admin/question/new?return_to=http%3A%2F%2F0.0.0.0%3A3000%2Fadmin%2Fquestion
+Completed 302 Found in 151ms (ActiveRecord: 127.4ms)
+
+
+Started GET "/admin/question/new?return_to=http%3A%2F%2F0.0.0.0%3A3000%2Fadmin%2Fquestion" for 127.0.0.1 at 2017-09-20 13:26:38 +0530
+Processing by RailsAdmin::MainController#new as HTML
+  Parameters: {"return_to"=>"http://0.0.0.0:3000/admin/question", "model_name"=>"question"}
+  Rendering /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/new.html.haml within layouts/rails_admin/application
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (3.0ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.5ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.2ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.4ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.6ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.6ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.6ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.4ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_submit_buttons.html.haml (11.7ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/new.html.haml within layouts/rails_admin/application (52.5ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_secondary_navigation.html.haml (5.7ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_navigation.html.haml (13.9ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (5.6ms)
+  Rendering /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/pjax.html.haml (15.5ms)
+Completed 200 OK in 252ms (Views: 239.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/question?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2017-09-20 13:26:41 +0530
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"question"}
+  Rendering /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY questions.id desc LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (118.8ms)
+Completed 200 OK in 148ms (Views: 133.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/question/10/edit?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2017-09-20 13:26:46 +0530
+Processing by RailsAdmin::MainController#edit as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"question", "id"=>"10"}
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = ? ORDER BY "questions"."id" ASC LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/edit.html.haml within layouts/rails_admin/pjax
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (6.1ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.4ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (1.5ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.7ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_submit_buttons.html.haml (28.1ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/edit.html.haml within layouts/rails_admin/pjax (90.1ms)
+Completed 200 OK in 140ms (Views: 123.5ms | ActiveRecord: 0.4ms)
+
+
+Started PUT "/admin/question/10/edit" for 127.0.0.1 at 2017-09-20 13:28:00 +0530
+Processing by RailsAdmin::MainController#edit as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fneGovQSueyg0KztPBldijvAcB6P8guqFvW/QvwuAMpPQpuJLujHR1XCqaN34S6hm++XamUsqfky7BHI5pxr1A==", "question"=>{"question"=>"When was WW1 started?", "option1"=>"1914", "option2"=>"1915", "option3"=>"1916", "option4"=>"1918", "genre"=>"G.K.", "a1"=>"1", "a2"=>"0", "a3"=>"0", "a4"=>"0", "subgenre"=>"History"}, "return_to"=>"http://0.0.0.0:3000/admin/question", "_save"=>"", "model_name"=>"question", "id"=>"10"}
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = ? ORDER BY "questions"."id" ASC LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "questions" SET "question" = ?, "option1" = ?, "option2" = ?, "option3" = ?, "option4" = ?, "genre" = ?, "a1" = ?, "subgenre" = ?, "updated_at" = ? WHERE "questions"."id" = ?[0m  [["question", "When was WW1 started?"], ["option1", "1914"], ["option2", "1915"], ["option3", "1916"], ["option4", "1918"], ["genre", "G.K."], ["a1", 1], ["subgenre", "HISTORY"], ["updated_at", "2017-09-20 07:58:00.120634"], ["id", 10]]
+  [1m[35m (84.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/admin/question
+Completed 302 Found in 121ms (ActiveRecord: 85.9ms)
+
+
+Started GET "/admin/question" for 127.0.0.1 at 2017-09-20 13:28:00 +0530
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"model_name"=>"question"}
+  Rendering /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/application
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY questions.id desc LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/application (101.0ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_secondary_navigation.html.haml (5.5ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_navigation.html.haml (13.0ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (7.2ms)
+  Rendering /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/pjax.html.haml (9.7ms)
+Completed 200 OK in 284ms (Views: 270.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/question/new?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2017-09-20 13:28:13 +0530
+Processing by RailsAdmin::MainController#new as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"question"}
+  Rendering /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/new.html.haml within layouts/rails_admin/pjax
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (1.9ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.8ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.4ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.4ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.2ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.2ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.4ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.5ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_submit_buttons.html.haml (9.2ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/new.html.haml within layouts/rails_admin/pjax (44.3ms)
+Completed 200 OK in 85ms (Views: 58.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/question/new" for 127.0.0.1 at 2017-09-20 13:29:45 +0530
+Processing by RailsAdmin::MainController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JSHZXfY/FFeDZID7+ZcIWuuGhhzCCZvd9bDwNzkrOCErXTH5mfZpj8uRsGuHVDPpP0Hf6xdRFIhdNO5ArKrzJw==", "question"=>{"question"=>"Which is first Indian cricket tournament ?", "option1"=>"Bombay Triangular", "option2"=>"Pepsi Cup", "option3"=>"Bombay Series", "option4"=>"None", "genre"=>"Sports", "a1"=>"1", "a2"=>"0", "a3"=>"0", "a4"=>"0", "subgenre"=>"Cricket"}, "return_to"=>"http://0.0.0.0:3000/admin/question", "_save"=>"", "model_name"=>"question"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (31.6ms)[0m  [1m[32mINSERT INTO "questions" ("question", "option1", "option2", "option3", "option4", "genre", "a1", "a2", "a3", "a4", "created_at", "updated_at", "subgenre") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["question", "Which is first Indian cricket tournament ?"], ["option1", "Bombay Triangular"], ["option2", "Pepsi Cup"], ["option3", "Bombay Series"], ["option4", "None"], ["genre", "SPORTS"], ["a1", 1], ["a2", 0], ["a3", 0], ["a4", 0], ["created_at", "2017-09-20 07:59:46.010891"], ["updated_at", "2017-09-20 07:59:46.010891"], ["subgenre", "CRICKET"]]
+  [1m[35m (153.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/admin/question
+Completed 302 Found in 205ms (ActiveRecord: 185.0ms)
+
+
+Started GET "/admin/question" for 127.0.0.1 at 2017-09-20 13:29:46 +0530
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"model_name"=>"question"}
+  Rendering /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/application
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY questions.id desc LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/application (80.4ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_secondary_navigation.html.haml (5.4ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_navigation.html.haml (12.9ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (5.0ms)
+  Rendering /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/pjax.html.haml (14.2ms)
+Completed 200 OK in 260ms (Views: 247.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/question/new?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2017-09-20 13:30:13 +0530
+Processing by RailsAdmin::MainController#new as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"question"}
+  Rendering /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/new.html.haml within layouts/rails_admin/pjax
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (4.0ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.5ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.4ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.5ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.5ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (1.0ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.5ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.5ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (1.3ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.7ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_submit_buttons.html.haml (17.8ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/new.html.haml within layouts/rails_admin/pjax (91.8ms)
+Completed 200 OK in 140ms (Views: 126.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/question/new" for 127.0.0.1 at 2017-09-20 13:31:25 +0530
+Processing by RailsAdmin::MainController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pNR+UcUL6mqhHQT+hgc0b5OpieYsib1QvhS75onZQ+2qqJb1qsKXsunoNG74xA/cR27QEfnRMgUWkKWRHFiI6w==", "question"=>{"question"=>"Which of the following is first cricket club in India ?", "option1"=>"Maharashtra Cricket Club", "option2"=>"Oriental Cricket Club", "option3"=>"Bombay Cricket Club", "option4"=>"East Indian Cricket Club", "genre"=>"Sports", "a1"=>"0", "a2"=>"1", "a3"=>"0", "a4"=>"0", "subgenre"=>"Cricket"}, "return_to"=>"http://0.0.0.0:3000/admin/question", "_save"=>"", "model_name"=>"question"}
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "questions" ("question", "option1", "option2", "option3", "option4", "genre", "a1", "a2", "a3", "a4", "created_at", "updated_at", "subgenre") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["question", "Which of the following is first cricket club in India ?"], ["option1", "Maharashtra Cricket Club"], ["option2", "Oriental Cricket Club"], ["option3", "Bombay Cricket Club"], ["option4", "East Indian Cricket Club"], ["genre", "SPORTS"], ["a1", 0], ["a2", 1], ["a3", 0], ["a4", 0], ["created_at", "2017-09-20 08:01:25.868302"], ["updated_at", "2017-09-20 08:01:25.868302"], ["subgenre", "CRICKET"]]
+  [1m[35m (160.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/admin/question
+Completed 302 Found in 194ms (ActiveRecord: 162.4ms)
+
+
+Started GET "/admin/question" for 127.0.0.1 at 2017-09-20 13:31:26 +0530
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"model_name"=>"question"}
+  Rendering /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/application
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" ORDER BY questions.id desc LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/application (162.2ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_secondary_navigation.html.haml (15.9ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_navigation.html.haml (24.1ms)
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (5.7ms)
+  Rendering /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered /home/user/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/pjax.html.haml (12.3ms)
+Completed 200 OK in 342ms (Views: 330.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-20 13:31:29 +0530
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 72ms (Views: 70.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/quiz" for 127.0.0.1 at 2017-09-20 13:31:33 +0530
+Processing by PlayController#new as HTML
+  Rendering play/new.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT DISTINCT "questions"."genre" FROM "questions"[0m
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions"."subgenre" FROM "questions" WHERE "questions"."genre" = ?[0m  [["genre", "G.K."]]
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions"."subgenre" FROM "questions" WHERE "questions"."genre" = ?[0m  [["genre", "SPORTS"]]
+  Rendered play/new.html.erb within layouts/application (7.2ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (10.6ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 112ms (Views: 109.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/play?genre=G.K.&restore=0&subgenre=GEOGRAPHY" for 127.0.0.1 at 2017-09-20 13:31:35 +0530
+Processing by PlayController#play as HTML
+  Parameters: {"genre"=>"G.K.", "restore"=>"0", "subgenre"=>"GEOGRAPHY"}
+  [1m[36mUserStat Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "user_stats" WHERE "user_stats"."user_id" = ? AND "user_stats"."genre" = ? AND "user_stats"."subgenre" = ? LIMIT ?[0m  [["user_id", 1], ["genre", "G.K."], ["subgenre", "GEOGRAPHY"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "user_stats" ("user_id", "genre", "subgenre", "last_ques", "score", "created_at", "updated_at", "highest_score") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["genre", "G.K."], ["subgenre", "GEOGRAPHY"], ["last_ques", 0], ["score", 0], ["created_at", "2017-09-20 08:01:35.381684"], ["updated_at", "2017-09-20 08:01:35.381684"], ["highest_score", 0]]
+  [1m[35m (150.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUserStat Load (0.4ms)[0m  [1m[34mSELECT "user_stats".* FROM "user_stats" WHERE "user_stats"."user_id" = ? AND "user_stats"."genre" = ? AND "user_stats"."subgenre" = ?[0m  [["user_id", 1], ["genre", "G.K."], ["subgenre", "GEOGRAPHY"]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  Rendering play/play.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "questions" WHERE "questions"."genre" = ? AND "questions"."subgenre" = ?[0m  [["genre", "G.K."], ["subgenre", "GEOGRAPHY"]]
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."genre" = ? AND "questions"."subgenre" = ?[0m  [["genre", "G.K."], ["subgenre", "GEOGRAPHY"]]
+  Rendered play/play.html.erb within layouts/application (44.0ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 315ms (Views: 102.8ms | ActiveRecord: 153.6ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2017-09-20 13:31:45 +0530
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/B03DUNcErHsWxjEae6cHkhCU6uwsW6KMX0Zr6cROGki02AzHryyA69t9wDokhD8GUjz7ciNDJfYsKVOvYGn6Q=="}
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-20 13:31:45 +0530
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 77ms (Views: 75.7ms | ActiveRecord: 0.2ms)
+
+
